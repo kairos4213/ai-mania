@@ -24,7 +24,7 @@ def get_files_info(working_directory: str, directory: str = ".") -> str:
             file_size: int = os.path.getsize(os.path.join(target_dir, filename))
             files_strs.append(f"{filename}: file_size={file_size}, is_dir={is_dir}")
 
-        result = "Result for current directory:\n\t- "
+        result: str = "Result for current directory:\n\t- "
         if directory != ".":
             result = f"Result for '{directory}':\n\t- "
         return result + "\n\t- ".join(files_strs)
