@@ -26,7 +26,7 @@ def run_python_file(
             cmd.extend(args)
 
         completed_process = subprocess.run(
-            cmd, capture_output=True, text=True, timeout=30
+            cmd, cwd=abs_working_dir, capture_output=True, text=True, timeout=30
         )
 
         outputString = ""
