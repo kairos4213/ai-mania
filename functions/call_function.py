@@ -14,6 +14,13 @@ available_functions = types.Tool(
     ]
 )
 
+function_map: dict = {
+    "get_files_info": get_files_info,
+    "get_file_content": get_file_content,
+    "run_python_file": run_python_file,
+    "write_file": write_file,
+}
+
 
 def call_function(
     function_call: types.FunctionCall, verbose: bool = False
@@ -23,12 +30,6 @@ def call_function(
     else:
         print(f" - Calling function: {function_call.name}")
 
-    function_map: dict = {
-        "get_files_info": get_files_info,
-        "get_file_content": get_file_content,
-        "run_python_file": run_python_file,
-        "write_file": write_file,
-    }
     function_name: str = function_call.name or ""
 
     if function_name not in function_map:
